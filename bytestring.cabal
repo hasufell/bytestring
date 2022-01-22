@@ -155,6 +155,7 @@ test-suite bytestring-tests
                     Lift
                     Properties
                     Properties.ByteString
+                    Properties.ShortByteString
                     Properties.ByteStringChar8
                     Properties.ByteStringLazy
                     Properties.ByteStringLazyChar8

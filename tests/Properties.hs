@@ -61,6 +61,7 @@ import QuickCheckUtils
 import Test.Tasty
 import Test.Tasty.QuickCheck
 
+import qualified Properties.ShortByteString as PropSBS
 import qualified Properties.ByteString as PropBS
 import qualified Properties.ByteStringChar8 as PropBS8
 import qualified Properties.ByteStringLazy as PropBL
@@ -553,6 +554,7 @@ testSuite :: TestTree
 testSuite = testGroup "Properties"
   [ testGroup "StrictWord8" PropBS.tests
   , testGroup "StrictChar8" PropBS8.tests
+  , testGroup "ShortSBS" PropSBS.tests
   , testGroup "LazyWord8"   PropBL.tests
   , testGroup "LazyChar8"   PropBL8.tests
   , testGroup "Misc"        misc_tests
