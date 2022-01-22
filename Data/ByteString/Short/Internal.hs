@@ -527,17 +527,12 @@ copyByteArray (BA# src#) (I# src_off#) (MBA# dst#) (I# dst_off#) (I# len#) =
 -- FFI imports
 
 compareByteArrays :: BA -> BA -> Int -> Int
-#if MIN_VERSION_base(4,11,0)
-compareByteArrays (BA# ba1#) (BA# ba2#) (I# len#) =
-  I# (compareByteArrays#  ba1# 0# ba2# 0# len#)
-#else
 compareByteArrays (BA# ba1#) (BA# ba2#) len =
   fromIntegral $ accursedUnutterablePerformIO $
     c_memcmp_ByteArray ba1# ba2# (fromIntegral len)
 
 foreign import ccall unsafe "string.h memcmp"
   c_memcmp_ByteArray :: ByteArray# -> ByteArray# -> CSize -> IO CInt
-#endif
 
 
 ------------------------------------------------------------------------
